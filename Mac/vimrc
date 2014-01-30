@@ -78,6 +78,7 @@ set nocompatible
  Bundle 'tpope/vim-surround'
  Bundle 'vim-scripts/L9'
  Bundle 'vim-scripts/bash-support.vim'
+ Bundle 'mattn/emmet-vim'
 " }
 
 " General Settings {
