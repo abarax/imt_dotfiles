@@ -1,0 +1,17 @@
+pane	2	1	:zsh	1	:*	1	:/Users/abarax	1	zsh	:
+pane	safesite-web	1	:web	0	:	1	:/Users/abarax/dev/safesite-web	1	vim	:vim
+pane	safesite-web	2	:core	0	:	1	:/Users/abarax/dev/safesite-core	1	vim	:vim
+pane	safesite-web	3	:git	0	:-	1	:/Users/abarax/dev/safesite-web/safesite	1	zsh	:
+pane	safesite-web	4	:server	0	:	1	:/Users/abarax/dev/safesite-web/safesite	1	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make run
+pane	safesite-web	4	:server	0	:	2	:/Users/abarax/dev/safesite-web/safesite	0	python	:/Users/abarax/dev/safesite-web/env/bin/python /Users/abarax/dev/safesite-web/env/bin/celery -A safesite worker -l info
+pane	safesite-web	4	:server	0	:	3	:/Users/abarax/dev/safesite-web	0	zsh	:
+pane	safesite-web	5	:ansible	1	:*	1	:/Users/abarax/dev/safesite-ansible/web	1	zsh	:
+pane	safesite-web	6	:prod	0	:	1	:/Users/abarax/dev/safesite-web	1	ssh	:ssh safesite-prod-web
+window	2	1	1	:*	5a57,178x41,0,0,18
+window	safesite-web	1	0	:	da4f,178x41,0,0,20
+window	safesite-web	2	0	:	da50,178x41,0,0,21
+window	safesite-web	3	0	:-	da51,178x41,0,0,22
+window	safesite-web	4	0	:	998c,178x41,0,0{80x41,0,0,23,97x41,81,0[97x20,81,0,26,97x20,81,21,27]}
+window	safesite-web	5	1	:*	da53,178x41,0,0,24
+window	safesite-web	6	0	:	da54,178x41,0,0,25
+state	safesite-web	

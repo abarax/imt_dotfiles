@@ -136,10 +136,10 @@ fi
 
 #  Aliases {{
 #-------------------------------------------------------------------------------
-alias ls='ls -FHG'
-alias ll='ls -lh'
+alias ls='ls -aFHG'
+alias ll='ls -alh'
 alias la='ls -la'
-alias l='ls'
+alias l='ls -lah'
 alias lls='ll -Sr'
 alias less='less -imJMW'
 alias update='brew update && brew upgrade'
@@ -320,4 +320,20 @@ source ~/.rvm/scripts/rvm
 
 # }}
 
+# Add pyenv scripts {{
+# ------------------------------------------------------------------------------
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="~/.pyenv/shims:$PATH"
+
+eval "$(pyenv init -)"
+    
+# }}
+
 # EOF
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+alias chrome="open /Applications/Google\ Chrome.app/ --args --disable-web-security"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

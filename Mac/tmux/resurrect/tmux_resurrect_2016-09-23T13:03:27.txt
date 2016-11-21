@@ -1,0 +1,31 @@
+pane	safesite-mobile	1	:mob	0	:-	1	:/Users/abarax/dev/safesite-mobile	1	vim	:vim
+pane	safesite-mobile	2	:api	0	:	1	:/Users/abarax/dev/safesite	1	vim	:vim
+pane	safesite-mobile	3	:core	0	:	1	:/Users/abarax/dev/safesite-core	1	vim	:vim
+pane	safesite-mobile	4	:git	1	:*	1	:/Users/abarax/dev/safesite-mobile/cordova	1	zsh	:
+pane	safesite-mobile	5	:server	0	:	1	:/Users/abarax/dev/safesite-mobile	1	node	:ember  
+pane	safesite-mobile	5	:server	0	:	2	:/Users/abarax/dev/safesite	0	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make run
+pane	safesite-mobile	5	:server	0	:	3	:/Users/abarax/dev/safesite	0	python	:/Users/abarax/dev/safesite/virtualenv-safesite/bin/python /Users/abarax/dev/safesite/virtualenv-safesite/bin/celery -A safesite_api worker -l info
+pane	safesite-mobile	6	:ansible	0	:	1	:/Users/abarax/dev/safesite-ansible/api	1	zsh	:
+pane	safesite-mobile	7	:prod	0	:	1	:/Users/abarax	1	ssh	:ssh safesite-prod-api
+pane	safesite-web	1	:web	1	:*	1	:/Users/abarax/dev/safesite-web	1	vim	:vim
+pane	safesite-web	2	:core	0	:	1	:/Users/abarax/dev/safesite-core	1	vim	:vim
+pane	safesite-web	3	:git	0	:-	1	:/Users/abarax/dev/safesite-web/safesite	1	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make shell
+pane	safesite-web	4	:server	0	:	1	:/Users/abarax/dev/safesite-web/safesite	1	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make run
+pane	safesite-web	4	:server	0	:	2	:/Users/abarax/dev/safesite-web/safesite	0	python	:/Users/abarax/dev/safesite-web/env/bin/python /Users/abarax/dev/safesite-web/env/bin/celery -A safesite worker -l info
+pane	safesite-web	4	:server	0	:	3	:/Users/abarax/dev/safesite-web	0	redis-server	:redis-server *:6379
+pane	safesite-web	5	:ansible	0	:	1	:/Users/abarax/dev/safesite-ansible/web	1	zsh	:
+pane	safesite-web	6	:prod	0	:	1	:/Users/abarax/dev/safesite-web	1	ssh	:ssh safesite-prod-web
+window	safesite-mobile	1	0	:-	c45d,236x55,0,0,0
+window	safesite-mobile	2	0	:	c45e,236x55,0,0,1
+window	safesite-mobile	3	0	:	c45f,236x55,0,0,2
+window	safesite-mobile	4	1	:*	c464,236x55,0,0,7
+window	safesite-mobile	5	0	:	939a,236x55,0,0{77x55,0,0,4,77x55,78,0,8,80x55,156,0,9}
+window	safesite-mobile	6	0	:	c462,236x55,0,0,5
+window	safesite-mobile	7	0	:	c463,236x55,0,0,6
+window	safesite-web	1	1	:*	625f,236x55,0,0,10
+window	safesite-web	2	0	:	6260,236x55,0,0,11
+window	safesite-web	3	0	:-	6261,236x55,0,0,12
+window	safesite-web	4	0	:	434b,236x55,0,0{110x55,0,0,13,125x55,111,0[125x26,111,0,16,125x28,111,27,17]}
+window	safesite-web	5	0	:	6263,236x55,0,0,14
+window	safesite-web	6	0	:	6264,236x55,0,0,15
+state	safesite-mobile	

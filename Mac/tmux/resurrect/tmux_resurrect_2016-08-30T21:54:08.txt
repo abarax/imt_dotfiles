@@ -1,0 +1,33 @@
+pane	safesite-mobile	1	:mob	0	:	1	:/Users/abarax/dev/safesite-mobile	1	vim	:vim
+pane	safesite-mobile	2	:api	0	:-	1	:/Users/abarax/dev/safesite	1	vim	:vim
+pane	safesite-mobile	3	:core	0	:	1	:/Users/abarax/dev/safesite-core	1	vim	:vim
+pane	safesite-mobile	4	:git	0	:	1	:/Users/abarax/dev/safesite-mobile	1	zsh	:
+pane	safesite-mobile	4	:git	0	:	2	:/Users/abarax/dev/safesite	0	python	:bash /Users/abarax/.tmux/plugins/tmux-resurrect/scripts/../save_command_strategies/ps.sh 3777
+python ./manage.py shell --settings=server.local-pg
+pane	safesite-mobile	5	:server	1	:*	1	:/Users/abarax/dev/safesite-mobile	0	node	:ember  
+pane	safesite-mobile	5	:server	1	:*	2	:/Users/abarax/dev/safesite	1	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make run
+pane	safesite-mobile	5	:server	1	:*	3	:/Users/abarax/dev/safesite	0	python	:/Users/abarax/dev/safesite/virtualenv-safesite/bin/python /Users/abarax/dev/safesite/virtualenv-safesite/bin/celery -A safesite_api worker -l info
+pane	safesite-mobile	6	:ansible	0	:	1	:/Users/abarax/dev/safesite-ansible/api	1	zsh	:
+pane	safesite-mobile	7	:prod	0	:	1	:/Users/abarax	1	zsh	:
+pane	safesite-web	1	:web	0	:	1	:/Users/abarax/dev/safesite-web	1	vim	:vim
+pane	safesite-web	2	:core	0	:	1	:/Users/abarax/dev/safesite-core	1	vim	:vim
+pane	safesite-web	3	:git	0	:	1	:/Users/abarax/dev/safesite-web/safesite	1	zsh	:
+pane	safesite-web	4	:server	0	:	1	:/Users/abarax/dev/safesite-web/safesite	1	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make run
+pane	safesite-web	4	:server	0	:	2	:/Users/abarax/dev/safesite-web/safesite	0	python	:/Users/abarax/dev/safesite-web/env/bin/python /Users/abarax/dev/safesite-web/env/bin/celery -A safesite worker -l info
+pane	safesite-web	4	:server	0	:	3	:/Users/abarax/dev/safesite-web	0	redis-server	:redis-server *:6379
+pane	safesite-web	5	:ansible	0	:-	1	:/Users/abarax/dev/safesite-ansible/web	1	zsh	:
+pane	safesite-web	6	:prod	1	:*	1	:/Users/abarax/dev/safesite-web	1	zsh	:
+window	safesite-mobile	1	0	:	c45d,236x55,0,0,0
+window	safesite-mobile	2	0	:-	c45e,236x55,0,0,1
+window	safesite-mobile	3	0	:	c45f,236x55,0,0,2
+window	safesite-mobile	4	0	:	de7c,236x55,0,0{117x55,0,0,3,118x55,118,0,7}
+window	safesite-mobile	5	1	:*	9f91,236x55,0,0{80x55,0,0,4,76x55,81,0,8,78x55,158,0,9}
+window	safesite-mobile	6	0	:	c462,236x55,0,0,5
+window	safesite-mobile	7	0	:	c463,236x55,0,0,6
+window	safesite-web	1	0	:	625f,236x55,0,0,10
+window	safesite-web	2	0	:	6260,236x55,0,0,11
+window	safesite-web	3	0	:	6261,236x55,0,0,12
+window	safesite-web	4	0	:	437f,236x55,0,0{109x55,0,0,13,126x55,110,0[126x27,110,0,16,126x27,110,28,17]}
+window	safesite-web	5	0	:-	6263,236x55,0,0,14
+window	safesite-web	6	1	:*	6264,236x55,0,0,15
+state	safesite-mobile	

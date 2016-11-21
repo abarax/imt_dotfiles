@@ -1,0 +1,15 @@
+pane	safesite-web	1	:web	0	:	1	:/Users/abarax/dev/safesite-web	1	vim	:vim
+pane	safesite-web	2	:core	0	:	1	:/Users/abarax/dev/safesite-core	1	zsh	:vim
+pane	safesite-web	3	:git	0	:	1	:/Users/abarax/dev/safesite-web/safesite	1	zsh	:
+pane	safesite-web	4	:server	0	:	1	:/Users/abarax/dev/safesite-web/safesite	1	make	:/Applications/Xcode.app/Contents/Developer/usr/bin/make run
+pane	safesite-web	4	:server	0	:	2	:/Users/abarax/dev/safesite-web/safesite	0	python	:/Users/abarax/dev/safesite-web/env/bin/python /Users/abarax/dev/safesite-web/env/bin/celery -A safesite worker -l info
+pane	safesite-web	4	:server	0	:	3	:/Users/abarax/dev/safesite-web	0	zsh	:
+pane	safesite-web	5	:ansible	0	:-	1	:/Users/abarax/dev/safesite-ansible/web	1	zsh	:
+pane	safesite-web	6	:prod	1	:*	1	:/Users/abarax/dev/safesite-web	1	ssh	:ssh safesite-prod-web
+window	safesite-web	1	0	:	b03d,178x40,0,0,0
+window	safesite-web	2	0	:	b03e,178x40,0,0,1
+window	safesite-web	3	0	:	b03f,178x40,0,0,2
+window	safesite-web	4	0	:	f4d7,178x40,0,0{81x40,0,0,3,96x40,82,0[96x19,82,0,6,96x20,82,20,7]}
+window	safesite-web	5	0	:-	b041,178x40,0,0,4
+window	safesite-web	6	1	:*	b042,178x40,0,0,5
+state	safesite-web	

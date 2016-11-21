@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/abarax/dev/safesite/safesite_api/fixtures/inspection_templates/jhenkel'
+let g:netrw_dirhist_2='/Users/abarax/dev/safesite/safesite_api/fixtures/inspection_templates'
+let g:netrw_dirhist_3='/Users/abarax/dev/safesite/safesite_api/fixtures'
+let g:netrw_dirhist_4='/Users/abarax/dev/safesite/safesite_api'
+let g:netrw_dirhist_5='/Users/abarax/dev/safesite'
+let g:netrw_dirhist_6='/Users/abarax/dev'
+let g:netrw_dirhist_7='/Users/abarax/dev/safesite/safesite_api/fixtures/inspection_templates/jhenkel'
+let g:netrw_dirhist_8='/Users/abarax/.ssh'
+let g:netrw_dirhist_9='/Users/abarax/dev/LeChessEngine/.git'
