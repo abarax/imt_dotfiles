@@ -1,13 +1,14 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker:
 "===================================================================================
-"  DESCRIPTION:  Enterprise Ready Development Environment
-" .__         __
-" |__| ______/  |_  _____  ______ ______  ______
-" |  |/     \   __\ \__  \ \____ \\____ \/  ___/
-" |  |  Y Y  \  |    / __ \|  |_> >  |_> >___ \
-" |__|__|_|  /__|   (____  /   __/|   __/____  >
-"          \/            \/|__|   |__|       \/
-"
+"  DESCRIPTION: A craftsman's toolbox 
+"  
+" .__         .__       .__  /\                .__                       
+" |  |   ____ |__| ____ |  |_)/  ______  ___  _|__| ____________   ____  
+" |  | _/ __ \|  |/ ___\|  |  \ /  ___/  \  \/ /  |/     \_  __ \_/ ___\ 
+" |  |_\  ___/|  / /_/  >   Y  \\___ \    \   /|  |  Y Y  \  | \/\  \___ 
+" |____/\___  >__\___  /|___|  /____  >    \_/ |__|__|_|  /__|    \___  >
+"           \/  /_____/      \/     \/                  \/            \/ 
+" 
 "===================================================================================
 "
 
@@ -41,38 +42,42 @@ set nocompatible
  Bundle 'gmarik/vundle'
 "
 "-----------------------------------------------------------------------------------
-" Github repos for bundles that we want to have installed
+" Github repos for bundles that we want to have installed (removed
+" https://github.com/).
 "-----------------------------------------------------------------------------------
- Bundle 'https://github.com/mileszs/ack.vim'
- Bundle 'https://github.com/Shougo/neocomplcache.vim'
- Bundle 'https://github.com/vim-scripts/bash-support.vim'
- Bundle 'https://github.com/Raimondi/delimitMate'
- Bundle 'https://github.com/vim-scripts/L9'
- Bundle 'https://github.com/scrooloose/nerdtree'
- Bundle 'https://github.com/JarrodCTaylor/vim-256-color-schemes'
- Bundle 'https://github.com/tpope/vim-fugitive'
+ Bundle 'JarrodCTaylor/vim-256-color-schemes'
+ Bundle 'JarrodCTaylor/vim-js2coffee'
+ Bundle 'JarrodCTaylor/vim-python-test-runner'
+ Bundle 'Lokaltog/vim-easymotion'
+ Bundle 'Lokaltog/vim-powerline'
+ Bundle 'Raimondi/delimitMate'
+ Bundle 'Shougo/neocomplcache.vim'
+ Bundle 'airblade/vim-gitgutter'
+ Bundle 'bling/vim-airline'
+ Bundle 'davidhalter/jedi-vim'
+ Bundle 'ervandew/supertab'
+ Bundle 'goldfeld/vim-seek.git'
+ Bundle 'jmcantrell/vim-virtualenv.git'
+ Bundle 'junegunn/seoul256.vim'
+ Bundle 'kchmck/vim-coffee-script'
+ Bundle 'kien/ctrlp.vim'
+ Bundle 'kien/rainbow_parentheses.vim'
  " Must have exuberant-ctags for tagbar to work
- Bundle 'https://github.com/majutsushi/tagbar'
- Bundle 'https://github.com/ervandew/supertab'
- Bundle 'https://github.com/pangloss/vim-javascript'
- Bundle 'https://github.com/Lokaltog/vim-easymotion'
- Bundle 'https://github.com/scrooloose/syntastic'
- Bundle 'https://github.com/kchmck/vim-coffee-script'
- Bundle 'https://github.com/kien/ctrlp.vim'
- Bundle 'https://github.com/tpope/vim-commentary'
- Bundle 'https://github.com/davidhalter/jedi-vim'
- Bundle 'https://github.com/goldfeld/vim-seek.git'
- Bundle 'https://github.com/mhinz/vim-startify'
- Bundle 'https://github.com/tpope/vim-surround'
- Bundle 'https://github.com/jmcantrell/vim-virtualenv.git'
- Bundle 'https://github.com/nono/vim-handlebars'
- Bundle 'https://github.com/JarrodCTaylor/vim-python-test-runner'
- Bundle 'https://github.com/tpope/vim-rails'
- Bundle 'https://github.com/tmhedberg/SimpylFold'
- Bundle 'https://github.com/bling/vim-airline'
- Bundle 'https://github.com/kien/rainbow_parentheses.vim'
- Bundle 'https://github.com/tpope/vim-fireplace'
- Bundle 'https://github.com/JarrodCTaylor/vim-js2coffee'
+ Bundle 'majutsushi/tagbar'
+ Bundle 'mhinz/vim-startify'
+ Bundle 'mileszs/ack.vim'
+ Bundle 'nono/vim-handlebars'
+ Bundle 'pangloss/vim-javascript'
+ Bundle 'scrooloose/nerdtree'
+ Bundle 'scrooloose/syntastic'
+ Bundle 'tmhedberg/SimpylFold'
+ Bundle 'tpope/vim-commentary'
+ Bundle 'tpope/vim-fireplace'
+ Bundle 'tpope/vim-fugitive'
+ Bundle 'tpope/vim-rails'
+ Bundle 'tpope/vim-surround'
+ Bundle 'vim-scripts/L9'
+ Bundle 'vim-scripts/bash-support.vim'
 " }
 
 " General Settings {
@@ -88,7 +93,7 @@ filetype  indent on
 " Color scheme and fonts if gui (gvim) then mustang if command line zenburn
 "-----------------------------------------------------------------------------------
 set t_Co=256
-colorscheme understated
+colorscheme harlem-nights
 "
 "-----------------------------------------------------------------------------------
 " Switch syntax highlighting on.
@@ -98,6 +103,7 @@ syntax on
 "-----------------------------------------------------------------------------------
 " Various settings
 "-----------------------------------------------------------------------------------
+set number
 set autoindent                         " Copy indent from current line
 set autoread                           " Read open files again when changed outside Vim
 set autowrite                          " Write a modified buffer on each :next , ...
@@ -164,14 +170,6 @@ if has("autocmd")
         \ endif
 endif
 
-"-----------------------------------------------------------------------------------
-" Take away Joel's trainer wheels
-"-----------------------------------------------------------------------------------
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
 " }
 
 " Status line {
@@ -189,108 +187,16 @@ let g:airline_section_z = ''                        " Do not show the default fi
 let g:airline#extensions#virtualenv#enabled = 0
 " }
 
-" Jarrod's Remapped Keys {
-"===================================================================================
-"  (nore) prefix -- non-recursive
-"  (un)   prefix -- Remove a mode-specific map
-"  Commands                        Mode
-"  --------                        ----
-"  map                             Normal, Visual, Select, Operator Pending modes
-"  nmap, nnoremap, nunmap          Normal mode
-"  imap, inoremap, iunmap          Insert and Replace mode
-"  vmap, vnoremap, vunmap          Visual and Select mode
-"  xmap, xnoremap, xunmap          Visual mode
-"  smap, snoremap, sunmap          Select mode
-"  cmap, cnoremap, cunmap          Command-line mode
-"  omap, onoremap, ounmap          Operator pending mode
-"===================================================================================
-"
-" --- change mapleader from \ to 9 as I find that easier to type
-let mapleader="9"
-" --- jk mapped to <Esc> so we can keep our fingers on the home row
-imap jk <Esc>
-" --- ss will toggle spell checking
-map ss :setlocal spell!<CR>
-" --- toggle NERDTree
-nnoremap <Leader>nt :NERDTreeToggle<CR>
-" --- toggle Tagbar
-nnoremap <Leader>tb :TagbarToggle<CR>
-" --- open CtrlP buffer explorer
-nnoremap <Leader>b :CtrlPBuffer<CR>
-" --- open Ctrlp as a fuzzy finder
-nnoremap <Leader>ff :CtrlP<CR>
-" --- Split the window vertically
-nnoremap <Leader>\ :vsplit<CR>
-" --- Split the window horizontally
-nnoremap <Leader>- :split<CR>
-" --- Ack short cut
-nnoremap <Leader>a :Ack!<space>
-" --- Toggle Syntastic
-nnoremap <Leader>ts :SyntasticToggleMode<CR>
-" --- Clear the search buffer and highlighted text with enter press
-:nnoremap <CR> :nohlsearch<CR>
-" --- Search the ctags index file for anything by class or method name
-map <Leader>st :CtrlPTag<CR>
-" --- Refresh the ctags file
-nnoremap <Leader>rt :call RenewTagsFile()<CR>
-" --- Strip trailing whitespace
-nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
-" --- Better window navigation E.g. now use Ctrl+j instead of Ctrl+W+j
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-" --- Shortcuts for test running commands
-nnoremap<Leader>da :DjangoTestApp<CR>
-nnoremap<Leader>df :DjangoTestFile<CR>
-nnoremap<Leader>dc :DjangoTestClass<CR>
-nnoremap<Leader>dm :DjangoTestMethod<CR>
-nnoremap<Leader>nf :NosetestFile<CR>
-nnoremap<Leader>nc :NosetestClass<CR>
-nnoremap<Leader>nm :NosetestMethod<CR>
-nnoremap<Leader>rr :RerunLastTests<CR>
-" --- grunt-karma test runner shortcut
-map <Leader>q :!grunt test<CR>"
-" --- Toggle relative line numbering
-nnoremap<Leader>tn :set relativenumber!<CR>
-" --- Shortcut to RenameFile function defined below
-map <Leader>rf :call RenameFile()<CR>
-" --- Shortcut to CopyFile function defined below
-map <Leader>cf :call CopyFile()<CR>
-
-" }
 
 " Plugin Configurations {
 
-"-----------------------------------------------------------------------------------
-" Syntastic configurations use :help syntastic.txt
-"-----------------------------------------------------------------------------------
-let g:syntastic_check_on_open=1                   " check for errors when file is loaded
-let g:syntastic_loc_list_height=5                 " the height of the error list defaults to 10
-let g:syntastic_python_checkers = ['flake8']      " sets flake8 as the default for checking python files
-let g:syntastic_javascript_checkers = ['jshint']  " sets jshint as our javascript linter
-" Ignore line width for syntax checking in python
-let g:syntastic_python_flake8_post_args='--ignore=E501'
-"
-"-----------------------------------------------------------------------------------
-" Neocomplcache configurations
-"-----------------------------------------------------------------------------------
-let g:neocomplcache_enable_at_startup=1
-" To make compatible with jedi
-let g:jedi#auto_vim_configuration = 0
-if !exists('g:neocomplcache_force_omni_patterns')
-      let g:neocomplcache_force_omni_patterns = {}
-  endif
-let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
-let g:neocomplcache_force_overwrite_completefunc = 1
-"
 "-----------------------------------------------------------------------------------
 " Ctrlp configurations
 "-----------------------------------------------------------------------------------
 let g:ctrlp_custom_ignore = 'node_modules$\|xmlrunner$\|.DS_Store|.git|.bak|.swp|.pyc'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 18
-"
+
 "-----------------------------------------------------------------------------------
 " Exuberant ctags configurations
 " Vim will look for a ctags file in the current directory and continue
@@ -300,17 +206,34 @@ let g:ctrlp_max_height = 18
 set tags=./.ctags,.ctags;
 
 "-----------------------------------------------------------------------------------
+" Jedi configurations
+"-----------------------------------------------------------------------------------
+let g:jedi#goto_definitions_command = "<Leader>j"
+let g:jedi#use_tabs_not_buffers = 0     " Use buffers not tabs
+let g:jedi#popup_on_dot = 0
+
+"-----------------------------------------------------------------------------------
+" Neocomplcache configurations
+"-----------------------------------------------------------------------------------
+let g:neocomplcache_enable_at_startup=1
+" To make compatible with jedi
+let g:jedi#auto_vim_configuration = 0
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
+let g:neocomplcache_force_overwrite_completefunc = 1
+
+"-----------------------------------------------------------------------------------
 " NERDTree configurations
 "-----------------------------------------------------------------------------------
 " Make NERDTree ignore .pyc files
 let NERDTreeIgnore = ['\.pyc$']
 
 "-----------------------------------------------------------------------------------
-" Jedi configurations
+" Powerline
 "-----------------------------------------------------------------------------------
-let g:jedi#goto_definitions_command = "<Leader>j"
-let g:jedi#use_tabs_not_buffers = 0     " Use buffers not tabs
-let g:jedi#popup_on_dot = 0
+let g:Powerline_symbols = 'fancy'
 
 "-----------------------------------------------------------------------------------
 " Startify configurations
@@ -347,6 +270,21 @@ let g:startify_show_files_number = 10
 let g:startify_bookmarks = [ '~/.vimrc' ]
 
 "-----------------------------------------------------------------------------------
+" SuperTab
+"-----------------------------------------------------------------------------------
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"-----------------------------------------------------------------------------------
+" Syntastic configurations use :help syntastic.txt
+"-----------------------------------------------------------------------------------
+let g:syntastic_check_on_open=1                   " check for errors when file is loaded
+let g:syntastic_loc_list_height=5                 " the height of the error list defaults to 10
+let g:syntastic_python_checkers = ['flake8']      " sets flake8 as the default for checking python files
+let g:syntastic_javascript_checkers = ['jshint']  " sets jshint as our javascript linter
+" Ignore line width for syntax checking in python
+let g:syntastic_python_flake8_post_args='--ignore=E501'
+
+"-----------------------------------------------------------------------------------
 " Rainbow Parentheses
 "-----------------------------------------------------------------------------------
 let g:rbpt_colorpairs = [
@@ -369,11 +307,6 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
-
-"-----------------------------------------------------------------------------------
-" SuperTab
-"-----------------------------------------------------------------------------------
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " }
 
@@ -414,10 +347,59 @@ endfunction
 
 " }
 
-" Key Bindings For The Others (Everyone who is not Jarrod) AT IMT {
+" Leigh's Remapped Keys {
+"===================================================================================
+"  (nore) prefix -- non-recursive
+"  (un)   prefix -- Remove a mode-specific map
+"  Commands                        Mode
+"  --------                        ----
+"  map                             Normal, Visual, Select, Operator Pending modes
+"  nmap, nnoremap, nunmap          Normal mode
+"  imap, inoremap, iunmap          Insert and Replace mode
+"  vmap, vnoremap, vunmap          Visual and Select mode
+"  xmap, xnoremap, xunmap          Visual mode
+"  smap, snoremap, sunmap          Select mode
+"  cmap, cnoremap, cunmap          Command-line mode
+"  omap, onoremap, ounmap          Operator pending mode
 "===================================================================================
 "
+" --- remap leader to comma
 let mapleader=","
+" --- ss will toggle spell checking
+map ss :setlocal spell!<CR>
+" --- toggle Tagbar
+nnoremap <Leader>tb :TagbarToggle<CR>
+" --- open CtrlP buffer explorer
+nnoremap <Leader>b :CtrlPBuffer<CR>
+" --- Split the window vertically
+nnoremap <Leader>\ :vsplit<CR>
+" --- Split the window horizontally
+nnoremap <Leader>- :split<CR>
+" --- Ack short cut, like grep on steroids
+nnoremap <Leader>a :Ack!<space>
+" --- Toggle Syntastic
+nnoremap <Leader>ts :SyntasticToggleMode<CR>
+" --- Clear the search buffer and highlighted text with enter press
+:nnoremap <CR> :nohlsearch<CR>
+" --- Search the ctags index file for anything by class or method name
+map <Leader>st :CtrlPTag<CR>
+" --- Refresh the ctags file
+nnoremap <Leader>rt :call RenewTagsFile()<CR>
+" --- Strip trailing whitespace
+nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+" --- Better window navigation E.g. now use Ctrl+j instead of Ctrl+W+j
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+" --- grunt-karma test runner shortcut
+map <Leader>q :!grunt test<CR>"
+" --- Toggle relative line numbering
+nnoremap<Leader>tn :set relativenumber!<CR>
+" --- Shortcut to RenameFile function defined below
+map <Leader>rf :call RenameFile()<CR>
+" --- Shortcut to CopyFile function defined below
+map <Leader>cf :call CopyFile()<CR>
 " --- open Ctrlp as a fuzzy finder
 nnoremap <Leader>ff :CtrlP<CR>
 " --- shortcut to save the current document
@@ -426,17 +408,9 @@ map .. :w<CR>
 noremap <Leader>sp :set spell spelllang=en_us<CR>
 " --- toggle Tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
-" --- like grep on steroids
-map <Leader>a :Ack!<space>
 " --- basic file system navigation view
 map <Leader>d :NERDTreeToggle<CR>
 nmap <Leader>nt :NERDTreeFind<CR>
-" --- python unit testing shortcuts
-map <Leader>ta :DjangoTestApp<CR>
-map <Leader>tf :DjangoTestFile<CR>
-map <Leader>tc :DjangoTestClass<CR>
-map <Leader>tm :DjangoTestMethod<CR>
-nnoremap<Leader>ta :RerunLastTests<CR>
 " --- search the ctags index file for anything by class or method name
 map <Leader>fs :CtrlPTag<CR>
 " --- search all files in the current files directory
@@ -445,20 +419,10 @@ map <Leader>fd :CtrlPCurFile<CR>
 map <Leader>fb :CtrlPBuffer<CR>
 " --- go to the last file you had open
 nmap <Leader><Leader> <c-^>
-" --- grunt-karma test runner shortcut
-map <Leader>q :!grunt test<CR>
 " --- ,ed Shortcut to edit .vimrc file on the fly on a vertical window
 nnoremap <Leader>ed <C-w><C-v><C-l>:e $MYVIMRC<CR>
 " --- Easy motion
 let g:EasyMotion_leader_key = '<Leader>l'
-" --- Shortcut to RenameFile function defined above
-map <Leader>rf :call RenameFile()<CR>
-" --- Shortcut to CopyFile function defined above
-map <Leader>cf :call CopyFile()<CR>
-" --- re-index the ctags file
-nnoremap <Leader>ri :call RenewTagsFile()<CR>
-" --- Strip trailing whitespace
-nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 " --- jj and jk For Qicker Escaping between normal and editing mode
 inoremap jj <ESC>
 inoremap jk <ESC>
